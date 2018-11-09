@@ -31,8 +31,8 @@ action :create do
 	Chef::Log.info("The scope #{new_resource.name} #{new_resource.scopeid} already exists")
   else
     # Required: Startrange, Endrange, subnetmask, name
-    if node[:os_version] >= '6.2'
-	  Chef::Log.debug("Windows Server 2012 Family Detected")
+    if node[:os_version] >= '10'
+	  Chef::Log.debug("Windows Server 2012/2016 Family Detected")
       if new_resource.version == '6'
         cmd = "Add-DhcpServerv6Scope"
 	  end
